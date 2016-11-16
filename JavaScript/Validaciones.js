@@ -28,7 +28,7 @@ function validateTlf(){
 
 function validatePassword(){
 	var n = document.getElementById("password").value;
-	var n2 = document.getElementById("password2").value;
+	var n2 = document.getElementById("password1").value;
 	if(n.length<6)
 		return false;
 	return (n==n2);

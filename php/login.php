@@ -4,13 +4,28 @@ include_once ("funcionalidades.php");
 
 function crearFormLogin(){
 	echo
-		'<form action="login.php" method="post" class="login">
+		'<div id="loginForm">
+		<form action="login.php" method="post" class="login">
 			<h2> Identificacion de Usuario </h2>
 			<div>Username<input name="email" type="text" required></div>
 			<div>Password<input name="pass" type="password" required></div>
 			<div><input id="login" name="login" type="submit" value="login"></div>
-		</form>';
+		</form>
+			<button type="button" onclick="mostrarForm()"> Recuperar contrasena </button>
+		</div>';
 }
+
+function crearFormRecuperar(){
+	echo
+		'<div id="recuperarForm" style="display: none">
+			<h2> Recuperar contraseña </h2>
+			<div>Username<input name="emailR" id="emailR" type="text" required></div>
+			<div><input id="recuperar" name="recuperar" type="submit" value="Recuperar" onclick=peticionPassNueva()></div>
+			<button type="button" onclick="mostrarFormL()"> Logear </button>
+			<div id="respuesta"></div>
+		</div>';
+}
+
 
 function verificarLogin($email, $pass){
 	$mysqli = conect();
@@ -78,6 +93,18 @@ function verificarLogin($email, $pass){
   <head>
 	<?php include('../adds/StyleAndMeta.php'); ?>
 	<title>Login</title>
+	<script>
+		function mostrarForm(){
+			$('#recuperarForm').show();
+			$('#loginForm').hide();
+		}
+
+		function mostrarFormL(){
+			$('#recuperarForm').hide();
+			$('#loginForm').show();
+		}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
   <div id='page-wrap'>
@@ -94,15 +121,36 @@ function verificarLogin($email, $pass){
 				}
 				else{
 					crearFormLogin();
+					crearFormRecuperar();
 				}
 			}
 			else{
 				echo 'Ya estas logueado '.$_SESSION["nombre"].'.';
 			}
 		?>
+		
 		</div>
     </section>
 	<?php include('../adds/footer.php'); ?>
 </div>
 </body>
 </html>
+
+<script>
+function peticionPassNueva(){
+	if($("#emailR").val()=="")
+		return;
+	
+		$.ajax({
+		data: "emailR="+$("#emailR").val(),
+		url: 'recuperarContrasena.php',
+		type: "POST",
+		success: function (response) {
+			$("#respuesta").html(response);
+		},
+		error:function(){$('#respuesta').html('Error Inesperado')}
+		});
+}
+
+
+</script>
