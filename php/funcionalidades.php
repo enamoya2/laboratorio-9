@@ -136,12 +136,12 @@ function guardarPreguntaBD($comp, $tematica, $pregunta, $respuesta){
 
 function imprimirPreguntasXML(){
 	$xml = simplexml_load_file('../xml/preguntas.xml');
-	echo '<table class="tabla" border=1> <tr> <th> TEMATICA </th> <th> COMPLEJIDAD </th> <th> ENUNCIADO </th></tr>';
+	echo '<table class="tabla" border=1> <tr> <td> TEMATICA </td> <td> COMPLEJIDAD </td> <td> ENUNCIADO </td></tr>';
 	foreach($xml->children() as $pregunta){
-		echo '<tr> <th>' . $pregunta['subject'] . '</th> <th>'. $pregunta['complexity'] . '</th>';
+		echo '<tr> <td>' . $pregunta['subject'] . '</th> <td>'. $pregunta['complexity'] . '</td>';
 		foreach($pregunta->children() as $child){
 			if($child->getName() == 'itemBody'){
-				echo '<th>' . $child->p . '</th>';
+				echo '<td>' . $child->p . '</td>';
 			}
 		}
 		echo '</tr>';

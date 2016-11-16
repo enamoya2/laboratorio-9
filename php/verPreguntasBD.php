@@ -32,7 +32,7 @@ function imprimirPreguntas(){
 		<div>
 			<?php 
 				if(isLogueado())
-					echo '<p> Para ver las preguntas hay que estas deslogueado </p>';
+					echo '<p> Para ver las preguntas hay que estar deslogueado </p>';
 				else
 					imprimirPreguntas(); 
 			?>
