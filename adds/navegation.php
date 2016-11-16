@@ -5,7 +5,7 @@
  if(!isLogueado()){
   echo
   "<span><a href='../php/layout.php'>Inicio</a></span>
-  <span><a href='../php/verPreguntas.php'>Preguntas</a></span>
+  <span><a href='../php/verPreguntasBD.php'>Preguntas</a></span>
   <span><a href='../php/creditos.php'>Creditos</a></span>";
  }
 

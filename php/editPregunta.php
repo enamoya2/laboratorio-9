@@ -11,7 +11,10 @@ if(!isset($num) || !isset($tematica) || !isset($pregunta) || !isset($respuesta) 
 	echo "ERROR";
 	return;
 }
-
+$tematica = htmlentities($tematica, ENT_QUOTES);
+$pregunta = htmlentities($pregunta, ENT_QUOTES);
+$respuesta = htmlentities($respuesta, ENT_QUOTES);
+$complejidad = htmlentities($complejiad, ENT_QUOTES);
 $sql="UPDATE pregunta SET Tematica='$tematica', Pregunta='$pregunta', Respuesta='$respuesta', Complejidad='$complejidad' WHERE Numero='$num'";
 
 if (!mysqli_query($mysqli ,$sql)){

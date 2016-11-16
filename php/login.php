@@ -128,7 +128,7 @@ function verificarLogin($email, $pass){
 				echo 'Ya estas logueado '.$_SESSION["nombre"].'.';
 			}
 		?>
-		
+
 		</div>
     </section>
 	<?php include('../adds/footer.php'); ?>
@@ -140,7 +140,7 @@ function verificarLogin($email, $pass){
 function peticionPassNueva(){
 	if($("#emailR").val()=="")
 		return;
-	
+
 		$.ajax({
 		data: "emailR="+$("#emailR").val(),
 		url: 'recuperarContrasena.php',

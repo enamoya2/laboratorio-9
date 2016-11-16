@@ -9,6 +9,10 @@
 	$pregunta=$_POST['pregunta'];
 	$respuesta=$_POST['respuesta'];
 
+	$tematica = htmlentities($tematica, ENT_QUOTES);
+	$pregunta = htmlentities($pregunta, ENT_QUOTES);
+	$respuesta = htmlentities($respuesta, ENT_QUOTES);
+	$comp = htmlentities($comp, ENT_QUOTES);
 
 	if (($tematica != "") && ($pregunta != "") && ($respuesta != "")){
 		if (guardarPreguntaBD($comp, $tematica, $pregunta, $respuesta) && guardarPreguntaXML($comp, $tematica, $pregunta, $respuesta)){

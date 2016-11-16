@@ -21,7 +21,7 @@ if($link== "false"){
   mysqli_close($mysqli);
   return;
 }
-if(enviarEmail($email, mensaje($link))){}
+if(enviarEmail($email, mensaje($link))){
 	echo '<p> Se ha enviado un email a dicho usuario para reestablecer la contrasena<p>';
 	echo '<p> Este servicio tarda aproximadamente 20 minutos<p>';
 }
@@ -32,7 +32,6 @@ mysqli_close($mysqli);
 
 function generarLink($email, $mysqli){
   $string = sha1($email.rand(1,99999999));
-
   $linkbase = mysqli_query($mysqli, "select * from link_contrasenas where Email='$email'");
   $cont= mysqli_num_rows($linkbase);
   if($cont==0){
@@ -62,8 +61,8 @@ function mensaje($link){
        <p>Se ha recibido una solicitud para restablecer la contrasena de su cuenta.</p>
        <p>Haga clic en el siguiente enlace. Si no usted no hizo esta solicitud puede ignorar este mensaje.</p>
        <p>
-         <strong>Enlace para restablecer su contraseña</strong><br>
-         <a href="'.$link.'"> Restablecer contraseña </a>
+         <strong>Enlace para restablecer su contrasena</strong><br>
+         <a href="'.$link.'"> Restablecer contrasena </a>
        </p>
      </body>
     </html>';

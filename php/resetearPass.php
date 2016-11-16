@@ -33,7 +33,7 @@ function resetPass(){
   		echo "Error: " . mysqli_error($mysqli);
   		return ;
   	}
-	
+
 	$sql="DELETE FROM link_contrasenas WHERE Email='$email'";
 	if (!mysqli_query($mysqli ,$sql)){
 		echo "Error: " . mysqli_error($mysqli);

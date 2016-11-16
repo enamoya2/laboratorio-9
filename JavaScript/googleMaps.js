@@ -14,6 +14,8 @@ function mapa(ip){
 
 function initMap(latitude, longitude) {
 
+  if(latitude==undefined || longitude==undefined )
+    return;
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: latitude, lng: longitude},
     zoom: 6

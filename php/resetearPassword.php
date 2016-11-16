@@ -1,6 +1,6 @@
 <<?php
 include_once ("funcionalidades.php");
-  
+
 function comprobarEnlace(){
 	$link = $_GET['link'];
   $email = $_GET['email'];
@@ -65,7 +65,7 @@ function generarForm(){
  </body>
  </html>
 
- 
+
  <script>
 	function validarPassword(){
 	var input = document.getElementById("password");
@@ -108,6 +108,6 @@ function activarBottonS(){
 	else
 		$('#botsubmit').prop( "disabled", true );
 }
- 
- 
+
+
  </script>

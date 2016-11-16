@@ -30,7 +30,12 @@ function imprimirPreguntas(){
 	<?php include('../adds/navegation.php'); ?>
     <section class="main" id="s1">
 		<div>
-			<?php imprimirPreguntas(); ?>
+			<?php 
+				if(isLogueado())
+					echo '<p> Para ver las preguntas hay que estas deslogueado </p>';
+				else
+					imprimirPreguntas(); 
+			?>
 		</div>
     </section>
 	<?php include('../adds/footer.php'); ?>

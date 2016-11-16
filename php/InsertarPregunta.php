@@ -17,6 +17,11 @@ function guardarPreguntaBD(){
 	if(!validarComplejidad($comp)){
 		$comp=0;
 	}
+	$tematica = htmlentities($tematica, ENT_QUOTES);
+	$pregunta = htmlentities($pregunta, ENT_QUOTES);
+	$respuesta = htmlentities($respuesta, ENT_QUOTES);
+	$comp = htmlentities($comp, ENT_QUOTES);
+
 	$sql="INSERT INTO pregunta(Email,  Tematica, Pregunta, Respuesta, Complejidad) VALUES ('$email', '$tematica', '$pregunta','$respuesta',$comp)";
 	if (!mysqli_query($mysqli ,$sql)){
 		echo "Error: " . mysqli_error($mysqli);
@@ -36,22 +41,27 @@ function guardarPreguntaXML(){
 	$tematica=$_POST['tematica'];
 	$pregunta=$_POST['pregunta'];
 	$respuesta=$_POST['respuesta'];
-	
+
+	$tematica = htmlentities($tematica, ENT_QUOTES);
+	$pregunta = htmlentities($pregunta, ENT_QUOTES);
+	$respuesta = htmlentities($respuesta, ENT_QUOTES);
+	$comp = htmlentities($comp, ENT_QUOTES);
+
 	$xml = simplexml_load_file('../xml/preguntas.xml');
 
 	$pregunt = $xml->addChild('assessmentItem');
-	
+
 	if($comp==0)
 		$pregunt->addAttribute('complexity', 'No tiene Complejidad');
 	else
 		$pregunt->addAttribute('complexity', $comp);
 	$pregunt->addAttribute('subject', $tematica);
-	
+
 	$body = $pregunt->addChild('itemBody');
 	$body->addChild('p', $pregunta);
 	$respu = $pregunt->addChild('correctResponse');
 	$respu->addChild('value',$respuesta);
-	
+
 	$resultado = $xml->asXML('../xml/preguntas.xml');
 	if($resultado == 1){
 		echo '<p>Pregunta insertada correctamente en preguntas.xml</p>';
