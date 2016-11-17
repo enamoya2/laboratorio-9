@@ -47,7 +47,7 @@ function generarLink($email, $mysqli){
   		return false;
   	}
   }
-  $enlace = 'enamoya.esy.es/ProyectoSW/php/resetearPassword.php?email='.$email.'&link='.$string;
+  $enlace = 'http://www.enamoya.esy.es/ProyectoSW/php/resetearPassword.php?email='.$email.'&link='.$string;
   return $enlace;
 }
 
