@@ -40,7 +40,7 @@
 						<div id="map" style="display: none"></div>
 					</div>
 					<div id= 'licencia'>
-						<img src='http://es.creativecommons.org/blog/wp-content/uploads/2013/04/by-nc-sa.eu_petit.png'>
+						<img src='../Images/by-nc-sa.png'>
 					</div>
 			</section>
 			<?php include('../adds/footer.php'); ?>
