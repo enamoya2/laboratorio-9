@@ -31,13 +31,16 @@
 					<div id= 'autor2'>
 						<h2> Jose Augusto Ena</h2>
 						<p align= "center">Especialidad: Computacion</p>
-						<img src='https://scontent.xx.fbcdn.net/v/t1.0-9/12715578_756959777768577_1813122112924269595_n.jpg?oh=414c1e1193fb93e5181087c560d9c820&oe=58717469' width="15%" height="25%">
+						<img src='../Images/Jose.jpg' width="15%" height="25%">
 					</div>
 					<div>
 						<h2 align="center"> GEOLOCALIZACION </h2>
 						<button id="Mapa_Cliente" onclick="mapa('<?php echo GetUserIP(); ?>')">Cliente</button>
 						<button id="Mapa_Servidor" onclick="mapa('<?php echo $_SERVER['SERVER_ADDR']; ?>')">Servidor</button>
 						<div id="map" style="display: none"></div>
+					</div>
+					<div id= 'licencia'>
+						<img src='http://es.creativecommons.org/blog/wp-content/uploads/2013/04/by-nc-sa.eu_petit.png'>
 					</div>
 			</section>
 			<?php include('../adds/footer.php'); ?>
